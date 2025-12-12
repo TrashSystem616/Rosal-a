@@ -19,7 +19,6 @@
         text-align: center;
     }
 
-    /* Imagen de fondo sin usar url() */
     #fondo {
         position: fixed;
         top: 0;
@@ -49,17 +48,26 @@
         font-weight: bold;
         margin-top: 10px;
     }
+
+    /* Mensaje final */
+    #mensaje-final {
+        display: none;
+        font-size: 50px;
+        font-weight: bold;
+        text-shadow: 0 0 10px #fff;
+    }
 </style>
 </head>
 <body>
 
-<!-- Imagen de fondo SIN usar url() -->
 <img id="fondo" src="rosi.jpeg">
 
-<div class="countdown">
-    <h1>Dias para ver a la Rosalía:</h1>
+<div class="countdown" id="contenedor">
+    <h1>Días para ver a la Rosalía:</h1>
     <div class="time" id="contador">Cargando...</div>
 </div>
+
+<div id="mensaje-final">¡Llegó el día! 🌟🔥</div>
 
 <script>
     function actualizarContador() {
@@ -68,7 +76,8 @@
         const diferencia = objetivo - ahora;
 
         if (diferencia <= 0) {
-            document.getElementById("contador").innerHTML = "¡Llegó el día!";
+            document.getElementById("contenedor").style.display = "none";
+            document.getElementById("mensaje-final").style.display = "block";
             return;
         }
 
@@ -86,4 +95,3 @@
 
 </body>
 </html>
-
